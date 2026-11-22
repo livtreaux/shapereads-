@@ -1,0 +1,72 @@
+/* styles/theme.css */
+:root {
+  --bg-parchment: #f7f3ea;
+  --bg-card: #fffdf8;
+  --bg-muted: #efe8d8;
+  --text-ink: #1e2a24;
+  --text-soft: #4e5d54;
+  --forest-primary: #1f4d3a;
+  --forest-dark: #153729;
+  --brass-accent: #b8893c;
+  --brass-soft: #f2e4c9;
+  --border-subtle: #dfd5c2;
+  --shadow-card: 0 8px 24px rgba(30, 42, 36, 0.07);
+}
+
+body.evening-study {
+  --bg-parchment: #141c18;
+  --bg-card: #1b2621;
+  --bg-muted: #223029;
+  --text-ink: #f1ece1;
+  --text-soft: #b8c2ba;
+  --forest-primary: #4ca37e;
+  --forest-dark: #367c5e;
+  --brass-accent: #d6a656;
+  --brass-soft: rgba(214, 166, 86, 0.16);
+  --border-subtle: #2c3d35;
+  --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: var(--bg-parchment);
+  color: var(--text-ink);
+  line-height: 1.6;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+button,
+select,
+textarea {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.badge {
+  display: inline-block;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+.badge-virtue {
+  background: var(--forest-primary);
+  color: #fffdf8;
+}
+
+.badge-trap {
+  background: var(--brass-soft);
+  color: var(--text-ink);
+  border: 1px solid var(--brass-accent);
+}
+
+.badge-age {
+  background: var(--bg-muted);
+  color: var(--text-soft);
+}
