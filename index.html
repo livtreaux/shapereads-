@@ -10,139 +10,300 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <div class="brand-wrap">
-        <svg width="38" height="38" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-          <rect x="4" y="6" width="32" height="28" rx="6" fill="#1f4d3a" />
-          <path d="M20 11C15 11 11 13 11 13V28C11 28 15 26 20 26C25 26 29 28 29 28V13C29 13 25 11 20 11Z" stroke="#f7f3ea" stroke-width="2" />
-          <path d="M20 11V26" stroke="#d6a656" stroke-width="2" />
+      <div class="brand-lockup">
+        <!-- Shape reads Emblem: Open Book + Sprouting Leaf + Owl -->
+        <svg width="58" height="58" viewBox="0 0 56 56" fill="none" aria-label="Shape reads emblem">
+          <circle cx="28" cy="28" r="25" fill="#1b4332" />
+          <circle cx="28" cy="28" r="22.5" stroke="#ddb05c" stroke-width="1.2" stroke-opacity="0.7" />
+          <path d="M21 15.5C23 13.5 26 13.5 28 15.5C30 13.5 33 13.5 35 15.5" stroke="#fbf8f1" stroke-width="1.8" stroke-linecap="round" />
+          <circle cx="24.2" cy="17.8" r="1.5" fill="#ddb05c" />
+          <circle cx="31.8" cy="17.8" r="1.5" fill="#ddb05c" />
+          <path d="M28 24.5C28 19.5 32.5 16.5 38 17C37.5 22.5 34 25.5 28 24.5Z" fill="#8cc49e" />
+          <path d="M28 24.5C31.5 22 34.5 19.8 37.5 17.5" stroke="#121a16" stroke-width="1.2" stroke-linecap="round" />
+          <path d="M28 25.5C23 24.2 17.5 25.2 14 27.2V40C17.5 38.2 23 37.5 28 39C33 37.5 38.5 38.2 42 40V27.2C38.5 25.2 33 24.2 28 25.5Z" fill="#fbf8f1" stroke="#fbf8f1" stroke-width="1.4" stroke-linejoin="round" />
+          <path d="M28 25.5V39" stroke="#1b4332" stroke-width="1.8" />
+          <path d="M18 30.5C20.8 29.8 23.5 30 25.5 30.6" stroke="#b5832c" stroke-width="1.3" stroke-linecap="round" />
+          <path d="M30.5 30.6C32.5 30 35.2 29.8 38 30.5" stroke="#b5832c" stroke-width="1.3" stroke-linecap="round" />
         </svg>
+
         <div>
           <h1 class="brand-title">Shape<span class="brand-reads">reads</span></h1>
           <p class="brand-tagline">Classics that shape character.</p>
         </div>
       </div>
 
-      <button id="themeToggle" class="btn">Evening Study</button>
+      <div class="header-actions">
+        <button id="openAccountBtn" class="btn btn-brass">
+          <span id="readerBadge">Reader Setup</span>
+        </button>
+        <button id="themeToggle" class="btn">Evening Study</button>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="mascot-banner" aria-label="Bram the Brass Lantern Guide">
-      <div class="mascot-left">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-          <rect x="11" y="10" width="14" height="17" rx="3" stroke="#b8893c" stroke-width="2.2" />
-          <path d="M14 10L18 5L22 10" stroke="#b8893c" stroke-width="2.2" />
-          <circle cx="18" cy="18.5" r="3" fill="#d6a656" />
-          <path d="M9 27H27" stroke="#b8893c" stroke-width="2.2" stroke-linecap="round" />
+    <!-- Fledge the Owl Reading Companion -->
+    <section class="fledge-card" aria-label="Fledge Reading Companion">
+      <div class="fledge-left">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-label="Fledge the owl">
+          <circle cx="26" cy="26" r="24" fill="#f3e6c8" stroke="#b5832c" stroke-width="1.5" />
+          <!-- Owl Ear Tufts -->
+          <path d="M16 14L20 18M36 14L32 18" stroke="#1b4332" stroke-width="2.2" stroke-linecap="round" />
+          <!-- Owl Body -->
+          <ellipse cx="26" cy="29" rx="11" ry="13" fill="#1b4332" />
+          <!-- Belly Feather Patch -->
+          <ellipse cx="26" cy="33" rx="6.5" ry="7.5" fill="#fbf8f1" />
+          <path d="M23 31.5H29M22.5 34.5H29.5M23.5 37.5H28.5" stroke="#b5832c" stroke-width="1.3" stroke-linecap="round" />
+          <!-- Owl Eyes -->
+          <circle cx="22" cy="23.5" r="3.6" fill="#fbf8f1" />
+          <circle cx="30" cy="23.5" r="3.6" fill="#fbf8f1" />
+          <circle cx="22.4" cy="23.5" r="1.7" fill="#121a16" />
+          <circle cx="30.4" cy="23.5" r="1.7" fill="#121a16" />
+          <!-- Beak -->
+          <path d="M24.2 26.2L26 29.2L27.8 26.2Z" fill="#ddb05c" />
         </svg>
+
         <div>
-          <div class="mascot-name">Bram the Brass Lantern</div>
-          <div id="bramMessage">Pick your age band or a modern blind spot you want to test—no essay shortcuts here.</div>
+          <div class="fledge-kicker">Fledge • Reading Companion</div>
+          <p id="fledgeQuote" class="fledge-quote">
+            Welcome to the branch. Take the short character quiz below so we can match you with a story—and save what catches your eye in The Nest.
+          </p>
         </div>
       </div>
-      <button id="bramNudgeBtn" class="btn btn-brass">Ask Bram for a Nudge</button>
+      <button id="fledgeTipBtn" class="btn btn-brass">Ask Fledge</button>
     </section>
 
-    <section class="filters-bar" aria-label="Book Filters">
-      <div class="filter-group">
-        <label for="ageFilter">Age Band</label>
-        <select id="ageFilter">
-          <option value="">All Ages (12–18)</option>
+    <!-- Interactive Character Quiz (Replaces Dropdown Filters) -->
+    <section class="quiz-panel" aria-label="Character Quiz">
+      <div class="quiz-header">
+        <h2>Character Quiz — Find Your Next Read</h2>
+        <span class="quiz-status" id="quizSummary">Showing all classics on the shelf</span>
+      </div>
+
+      <div class="quiz-grid">
+        <div class="quiz-step">
+          <label for="quizAge">1. Your Reading Stage</label>
+          <select id="quizAge">
+            <option value="">Any Age (12–18)</option>
+            <option value="Early (12-14)">Early Teens (12–14)</option>
+            <option value="Older (15-18)">Older Teens (15–18)</option>
+          </select>
+        </div>
+
+        <div class="quiz-step">
+          <label for="quizVirtue">2. Virtue You Want to Grow</label>
+          <select id="quizVirtue">
+            <option value="">Any Virtue</option>
+            <option value="Compassion">Compassion</option>
+            <option value="Discernment">Discernment</option>
+            <option value="Patience">Patience</option>
+            <option value="Self-Control">Self-Control</option>
+            <option value="Responsibility">Responsibility</option>
+          </select>
+        </div>
+
+        <div class="quiz-step">
+          <label for="quizPosture">3. What Kind of Challenge Calls You?</label>
+          <select id="quizPosture">
+            <option value="">Open to Anything</option>
+            <option value="steady">Slowing down &amp; holding steady</option>
+            <option value="clear-eyed">Seeing people &amp; motives clearly</option>
+            <option value="grounded">Stepping up when things get real</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="quiz-footer">
+        <span id="quizMatchNote" style="font-size:0.9rem; color:var(--ink-secondary);">
+          Tip: Choose what fits right now, or reset anytime to browse the full shelf.
+        </span>
+        <div style="display:flex; gap:0.5rem;">
+          <button id="resetQuizBtn" class="btn">Show All Books</button>
+          <button id="runQuizBtn" class="btn btn-primary">Match My Read</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book Shelf -->
+    <section aria-label="Curated Classics Shelf">
+      <div class="shelf-heading-row">
+        <h2>Recommended Classics</h2>
+        <span id="bookCountLabel" style="font-size:0.9rem; color:var(--ink-secondary);"></span>
+      </div>
+      <div id="booksGrid" class="books-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- The Nest: Saved Highlights & Reflections -->
+    <section id="nestSection" class="nest-section" aria-label="The Nest">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <div>
+          <h2>The Nest</h2>
+          <p style="margin:0; font-size:0.92rem; color:var(--ink-secondary);">
+            Your gathered highlights and reflections from The Perch, kept safely on this device.
+          </p>
+        </div>
+      </div>
+      <div id="nestList" class="nest-list"></div>
+    </section>
+  </main>
+
+  <!-- The Perch Modal (Questions + Highlight Saver + Library Link) -->
+  <div id="perchModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="perchTitle">
+    <div class="modal-sheet">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;">
+        <div>
+          <div id="perchChips" class="chip-row"></div>
+          <h2 id="perchTitle" style="margin:0.45rem 0 0.15rem; color:var(--forest-deep);"></h2>
+          <p id="perchAuthor" class="book-author"></p>
+        </div>
+        <button id="closePerchBtn" class="btn">Close</button>
+      </div>
+
+      <div class="recap-strip">
+        <strong>Story Anchor:</strong> <span id="perchRecap"></span>
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <a id="perchLibraryLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-brass">
+          Open Public Library Edition ↗
+        </a>
+      </div>
+
+      <h3 style="margin:0.5rem 0 0.35rem; font-size:1.1rem; color:var(--forest-deep);">The Perch — Reflection Questions</h3>
+      <ol id="perchPrompts" class="perch-questions"></ol>
+
+      <label for="highlightInput" style="display:block; font-weight:700; font-size:0.9rem; margin-bottom:0.35rem;">
+        Save a Highlight or Thought to The Nest
+      </label>
+      <textarea id="highlightInput" class="highlight-box" placeholder="Paste a line from the book or jot a thought about what stood out to you..."></textarea>
+      <button id="saveHighlightBtn" class="btn btn-primary">Tuck Into The Nest</button>
+    </div>
+  </div>
+
+  <!-- Reader Account Setup Modal -->
+  <div id="accountModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <div class="modal-sheet">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:0.75rem;">
+        <h2 id="accountTitle" style="margin:0; color:var(--forest-deep);">Reader Profile Setup</h2>
+        <button id="closeAccountBtn" class="btn">Close</button>
+      </div>
+      <p style="margin-top:0; font-size:0.94rem; color:var(--ink-secondary);">
+        Personalize how Fledge greets you and keep your reading stage and Nest notes ready in this browser.
+      </p>
+
+      <div class="quiz-step" style="margin-bottom:0.85rem;">
+        <label for="readerNameInput">Your Name or Pen Name</label>
+        <input id="readerNameInput" type="text" placeholder="e.g., Clara, Mateo, Night Reader..." />
+      </div>
+
+      <div class="quiz-step" style="margin-bottom:1rem;">
+        <label for="readerStageSelect">Default Reading Stage</label>
+        <select id="readerStageSelect">
+          <option value="">Not set yet</option>
           <option value="Early (12-14)">Early Teens (12–14)</option>
           <option value="Older (15-18)">Older Teens (15–18)</option>
         </select>
       </div>
 
-      <div class="filter-group">
-        <label for="virtueFilter">Primary Virtue</label>
-        <select id="virtueFilter">
-          <option value="">All 5 Virtues</option>
-          <option value="Compassion">Compassion</option>
-          <option value="Discernment">Discernment</option>
-          <option value="Patience">Patience</option>
-          <option value="Self-Control">Self-Control</option>
-          <option value="Responsibility">Responsibility</option>
-        </select>
-      </div>
-
-      <div class="filter-group">
-        <label for="trapFilter">Modern Trap Targeted</label>
-        <select id="trapFilter">
-          <option value="">All 4 Modern Traps</option>
-          <option value="Wanting shortcuts">Wanting shortcuts</option>
-          <option value="Poor listening">Poor listening</option>
-          <option value="Main character energy">Main character energy</option>
-          <option value="Follow your heart">"Follow your heart"</option>
-        </select>
-      </div>
-    </section>
-
-    <section id="booksGrid" class="books-grid" aria-live="polite"></section>
-  </main>
-
-  <div id="councilModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-panel">
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;">
-        <div>
-          <div id="modalBadges" class="badge-row"></div>
-          <h2 id="modalTitle" style="margin:0.4rem 0 0.15rem; color:var(--forest-primary);"></h2>
-          <p id="modalAuthor" class="book-author"></p>
-        </div>
-        <button id="closeModalBtn" class="btn">Close</button>
-      </div>
-
-      <div class="recap-box">
-        <strong>Where We Left Off:</strong> <span id="modalRecap"></span>
-      </div>
-
-      <h3 style="margin-bottom:0.4rem; font-size:1.05rem;">Character Council Questions</h3>
-      <ol id="modalPrompts" class="prompt-list"></ol>
-
-      <label for="reflectionInput" style="display:block; font-weight:700; font-size:0.9rem; margin-bottom:0.35rem;">
-        Your Mirror Highlight (Saved privately on this device)
-      </label>
-      <textarea id="reflectionInput" class="reflection-area" placeholder="Write what this chapter exposed about pride, patience, listening, or impulse..."></textarea>
-      <button id="saveReflectionBtn" class="btn btn-primary">Save Mirror Highlight</button>
-
-      <div id="savedNotesWrap" class="saved-notes"></div>
+      <button id="saveAccountBtn" class="btn btn-primary">Save Reader Profile</button>
     </div>
   </div>
 
   <script type="module">
-    import { filterBooks } from "./js/books.js";
+    import { BOOKS, matchBooksFromQuiz } from "./js/books.js";
     import { getPromptsForBook } from "./js/socratic.js";
 
     const booksGrid = document.getElementById("booksGrid");
-    const ageFilter = document.getElementById("ageFilter");
-    const virtueFilter = document.getElementById("virtueFilter");
-    const trapFilter = document.getElementById("trapFilter");
+    const bookCountLabel = document.getElementById("bookCountLabel");
+    const quizAge = document.getElementById("quizAge");
+    const quizVirtue = document.getElementById("quizVirtue");
+    const quizPosture = document.getElementById("quizPosture");
+    const runQuizBtn = document.getElementById("runQuizBtn");
+    const resetQuizBtn = document.getElementById("resetQuizBtn");
+    const quizSummary = document.getElementById("quizSummary");
+    const quizMatchNote = document.getElementById("quizMatchNote");
+
+    const fledgeQuote = document.getElementById("fledgeQuote");
+    const fledgeTipBtn = document.getElementById("fledgeTipBtn");
     const themeToggle = document.getElementById("themeToggle");
-    const bramMessage = document.getElementById("bramMessage");
-    const bramNudgeBtn = document.getElementById("bramNudgeBtn");
 
-    const modal = document.getElementById("councilModal");
-    const closeModalBtn = document.getElementById("closeModalBtn");
-    const modalBadges = document.getElementById("modalBadges");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalAuthor = document.getElementById("modalAuthor");
-    const modalRecap = document.getElementById("modalRecap");
-    const modalPrompts = document.getElementById("modalPrompts");
-    const reflectionInput = document.getElementById("reflectionInput");
-    const saveReflectionBtn = document.getElementById("saveReflectionBtn");
-    const savedNotesWrap = document.getElementById("savedNotesWrap");
+    const perchModal = document.getElementById("perchModal");
+    const closePerchBtn = document.getElementById("closePerchBtn");
+    const perchChips = document.getElementById("perchChips");
+    const perchTitle = document.getElementById("perchTitle");
+    const perchAuthor = document.getElementById("perchAuthor");
+    const perchRecap = document.getElementById("perchRecap");
+    const perchLibraryLink = document.getElementById("perchLibraryLink");
+    const perchPrompts = document.getElementById("perchPrompts");
+    const highlightInput = document.getElementById("highlightInput");
+    const saveHighlightBtn = document.getElementById("saveHighlightBtn");
 
-    let activeBookId = null;
+    const nestList = document.getElementById("nestList");
 
-    const bramNudges = [
-      "Notice where a character reaches for a shortcut—and ask what you usually rush past.",
-      "Good reading isn't proving you're clever; it's catching a blind spot before life teaches it the hard way.",
-      "Before defending a character's choice, ask who paid the price for it.",
-      "Pick one question below and write two honest sentences—no grades, no essay rubric."
+    const openAccountBtn = document.getElementById("openAccountBtn");
+    const accountModal = document.getElementById("accountModal");
+    const closeAccountBtn = document.getElementById("closeAccountBtn");
+    const readerNameInput = document.getElementById("readerNameInput");
+    const readerStageSelect = document.getElementById("readerStageSelect");
+    const saveAccountBtn = document.getElementById("saveAccountBtn");
+    const readerBadge = document.getElementById("readerBadge");
+
+    let activeBook = null;
+    let currentBooks = [...BOOKS];
+
+    const fledgeTips = [
+      "A great book doesn't just entertain—it holds up a quiet glass to how you react when things get inconvenient.",
+      "Read slowly enough to notice what a character justifies—and what they refuse to see.",
+      "You don't have to finish a whole chapter to tuck a sharp line or honest question into The Nest.",
+      "Look for the moment a character has a choice between looking smart and being true."
     ];
 
-    bramNudgeBtn.addEventListener("click", () => {
-      const next = bramNudges[Math.floor(Math.random() * bramNudges.length)];
-      bramMessage.textContent = next;
+    function getProfile() {
+      const raw = localStorage.getItem("shapereads_reader_profile");
+      return raw ? JSON.parse(raw) : { name: "", ageBand: "" };
+    }
+
+    function applyProfileToUI() {
+      const profile = getProfile();
+      if (profile.name) {
+        readerBadge.textContent = `${profile.name}'s Nest`;
+        fledgeQuote.textContent = `Good to see you, ${profile.name}. Take the quiz below or open a book's Perch when you're ready to reflect.`;
+      } else {
+        readerBadge.textContent = "Reader Setup";
+      }
+      if (profile.ageBand && !quizAge.value) {
+        quizAge.value = profile.ageBand;
+      }
+    }
+
+    openAccountBtn.addEventListener("click", () => {
+      const profile = getProfile();
+      readerNameInput.value = profile.name || "";
+      readerStageSelect.value = profile.ageBand || "";
+      accountModal.classList.add("open");
+    });
+
+    closeAccountBtn.addEventListener("click", () => accountModal.classList.remove("open"));
+    accountModal.addEventListener("click", (e) => {
+      if (e.target === accountModal) accountModal.classList.remove("open");
+    });
+
+    saveAccountBtn.addEventListener("click", () => {
+      const profile = {
+        name: readerNameInput.value.trim(),
+        ageBand: readerStageSelect.value
+      };
+      localStorage.setItem("shapereads_reader_profile", JSON.stringify(profile));
+      if (profile.ageBand) {
+        quizAge.value = profile.ageBand;
+      }
+      applyProfileToUI();
+      accountModal.classList.remove("open");
+    });
+
+    fledgeTipBtn.addEventListener("click", () => {
+      const pick = fledgeTips[Math.floor(Math.random() * fledgeTips.length)];
+      fledgeQuote.textContent = pick;
     });
 
     themeToggle.addEventListener("click", () => {
@@ -152,110 +313,147 @@
         : "Evening Study";
     });
 
-    function getDiaryNotes(bookId) {
-      const raw = localStorage.getItem("shapereads_mirror_notes");
-      const all = raw ? JSON.parse(raw) : {};
-      return all[bookId] || [];
+    function getNestEntries() {
+      const raw = localStorage.getItem("shapereads_nest_entries");
+      return raw ? JSON.parse(raw) : [];
     }
 
-    function saveDiaryNote(bookId, text) {
-      const raw = localStorage.getItem("shapereads_mirror_notes");
-      const all = raw ? JSON.parse(raw) : {};
-      if (!all[bookId]) all[bookId] = [];
-      all[bookId].unshift({
+    function addNestEntry(book, text) {
+      const entries = getNestEntries();
+      entries.unshift({
+        bookId: book.bookId,
+        bookTitle: book.title,
+        virtue: book.primaryVirtue,
         text,
-        date: new Date().toLocaleDateString()
+        savedAt: new Date().toLocaleDateString()
       });
-      localStorage.setItem("shapereads_mirror_notes", JSON.stringify(all));
+      localStorage.setItem("shapereads_nest_entries", JSON.stringify(entries));
     }
 
-    function renderNotes(bookId) {
-      const notes = getDiaryNotes(bookId);
-      if (!notes.length) {
-        savedNotesWrap.innerHTML = "<p style='color:var(--text-soft); font-size:0.88rem;'>No Mirror Highlights saved for this book yet.</p>";
+    function renderNest() {
+      const entries = getNestEntries();
+      if (!entries.length) {
+        nestList.innerHTML = "<p style='color:var(--ink-secondary); font-size:0.92rem;'>Your Nest is quiet right now. Open any book's Perch to save a highlight or reflection.</p>";
         return;
       }
-      savedNotesWrap.innerHTML =
-        "<strong style='font-size:0.9rem;'>Saved Mirror Highlights:</strong>" +
-        notes
-          .map(
-            (n) =>
-              `<div class="note-item"><small style="color:var(--text-soft);">${n.date}</small><div>${n.text.replace(/</g, "&lt;")}</div></div>`
-          )
-          .join("");
+
+      nestList.innerHTML = entries
+        .map(
+          (entry) => `
+          <article class="nest-entry">
+            <div class="nest-meta">
+              <span class="nest-book">${entry.bookTitle}</span> • ${entry.virtue} • ${entry.savedAt}
+            </div>
+            <div>${entry.text.replace(/</g, "&lt;")}</div>
+          </article>
+        `
+        )
+        .join("");
     }
 
-    function openBookModal(book) {
-      activeBookId = book.bookId;
-      modalBadges.innerHTML = `
-        <span class="badge badge-age">${book.ageBand}</span>
-        <span class="badge badge-virtue">${book.primaryVirtue}</span>
-        <span class="badge badge-trap">Trap: ${book.modernTrapTargeted}</span>
+    function openPerch(book) {
+      activeBook = book;
+      perchChips.innerHTML = `
+        <span class="chip chip-age">${book.ageBand}</span>
+        <span class="chip chip-virtue">${book.primaryVirtue}</span>
       `;
-      modalTitle.textContent = book.title;
-      modalAuthor.textContent = `by ${book.author}`;
-      modalRecap.textContent = book.recapAnchor;
+      perchTitle.textContent = book.title;
+      perchAuthor.textContent = `by ${book.author}`;
+      perchRecap.textContent = book.recapAnchor;
+
+      if (book.libraryUrl) {
+        perchLibraryLink.href = book.libraryUrl;
+        perchLibraryLink.style.display = "inline-flex";
+      } else {
+        perchLibraryLink.style.display = "none";
+      }
 
       const prompts = getPromptsForBook(book.bookId);
-      modalPrompts.innerHTML = prompts.map((q) => `<li>${q}</li>`).join("");
+      perchPrompts.innerHTML = prompts.map((q) => `<li>${q}</li>`).join("");
 
-      reflectionInput.value = "";
-      renderNotes(book.bookId);
-      modal.classList.add("open");
+      highlightInput.value = "";
+      perchModal.classList.add("open");
     }
 
-    closeModalBtn.addEventListener("click", () => modal.classList.remove("open"));
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) modal.classList.remove("open");
+    closePerchBtn.addEventListener("click", () => perchModal.classList.remove("open"));
+    perchModal.addEventListener("click", (e) => {
+      if (e.target === perchModal) perchModal.classList.remove("open");
     });
 
-    saveReflectionBtn.addEventListener("click", () => {
-      const text = reflectionInput.value.trim();
-      if (!text || !activeBookId) return;
-      saveDiaryNote(activeBookId, text);
-      reflectionInput.value = "";
-      renderNotes(activeBookId);
+    saveHighlightBtn.addEventListener("click", () => {
+      const text = highlightInput.value.trim();
+      if (!text || !activeBook) return;
+      addNestEntry(activeBook, text);
+      highlightInput.value = "";
+      renderNest();
+      perchModal.classList.remove("open");
+      fledgeQuote.textContent = `Tucked into The Nest under ${activeBook.title}. Whenever you're ready, look back at what you wrote.`;
     });
 
-    function renderBooks() {
-      const matches = filterBooks({
-        ageBand: ageFilter.value,
-        virtue: virtueFilter.value,
-        trap: trapFilter.value
-      });
+    function renderBooks(list) {
+      booksGrid.innerHTML = "";
+      bookCountLabel.textContent = `${list.length} ${list.length === 1 ? "book" : "books"}`;
 
-      if (!matches.length) {
-        booksGrid.innerHTML = "<p>No books match that exact combination yet—try clearing one filter.</p>";
+      if (!list.length) {
+        booksGrid.innerHTML = "<p>No exact match for that combination yet—try resetting the quiz to see all classics.</p>";
         return;
       }
 
-      booksGrid.innerHTML = "";
-      matches.forEach((book) => {
+      list.forEach((book) => {
         const card = document.createElement("article");
-        card.className = "book-card";
+        card.className = "book-folio";
         card.innerHTML = `
           <div>
-            <div class="badge-row">
-              <span class="badge badge-age">${book.ageBand}</span>
-              <span class="badge badge-virtue">${book.primaryVirtue}</span>
-              <span class="badge badge-trap">${book.modernTrapTargeted}</span>
+            <div class="chip-row">
+              <span class="chip chip-age">${book.ageBand}</span>
+              <span class="chip chip-virtue">${book.primaryVirtue}</span>
             </div>
             <h3>${book.title}</h3>
             <p class="book-author">${book.author}</p>
-            <p class="hook-text">${book.characterHook}</p>
+            <p class="book-hook">${book.characterHook}</p>
           </div>
-          <button class="btn btn-primary">Open Character Council</button>
+          <div class="book-actions">
+            <button class="btn btn-primary perch-open-btn">Enter The Perch</button>
+            ${
+              book.libraryUrl
+                ? `<a href="${book.libraryUrl}" target="_blank" rel="noopener noreferrer" class="btn">Read in Library ↗</a>`
+                : ""
+            }
+          </div>
         `;
-        card.querySelector("button").addEventListener("click", () => openBookModal(book));
+        card.querySelector(".perch-open-btn").addEventListener("click", () => openPerch(book));
         booksGrid.appendChild(card);
       });
     }
 
-    ageFilter.addEventListener("change", renderBooks);
-    virtueFilter.addEventListener("change", renderBooks);
-    trapFilter.addEventListener("change", renderBooks);
+    runQuizBtn.addEventListener("click", () => {
+      const results = matchBooksFromQuiz({
+        ageBand: quizAge.value,
+        focusArea: quizVirtue.value,
+        mood: quizPosture.value
+      });
+      currentBooks = results;
+      quizSummary.textContent = "Matched from your Character Quiz";
+      quizMatchNote.textContent =
+        quizVirtue.value
+          ? `Focused on growing ${quizVirtue.value}.`
+          : "Showing classics matched to your answers.";
+      renderBooks(currentBooks);
+    });
 
-    renderBooks();
+    resetQuizBtn.addEventListener("click", () => {
+      quizAge.value = "";
+      quizVirtue.value = "";
+      quizPosture.value = "";
+      currentBooks = [...BOOKS];
+      quizSummary.textContent = "Showing all classics on the shelf";
+      quizMatchNote.textContent = "Tip: Choose what fits right now, or reset anytime to browse the full shelf.";
+      renderBooks(currentBooks);
+    });
+
+    applyProfileToUI();
+    renderBooks(currentBooks);
+    renderNest();
   </script>
 </body>
 </html>
