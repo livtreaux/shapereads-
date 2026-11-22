@@ -1,30 +1,32 @@
 /* styles/theme.css */
 :root {
-  --bg-parchment: #f7f3ea;
-  --bg-card: #fffdf8;
-  --bg-muted: #efe8d8;
-  --text-ink: #1e2a24;
-  --text-soft: #4e5d54;
-  --forest-primary: #1f4d3a;
-  --forest-dark: #153729;
-  --brass-accent: #b8893c;
-  --brass-soft: #f2e4c9;
-  --border-subtle: #dfd5c2;
-  --shadow-card: 0 8px 24px rgba(30, 42, 36, 0.07);
+  --paper-base: #f5efe2;
+  --paper-elevated: #fbf8f1;
+  --paper-ruled: #ebe2cf;
+  --ink-primary: #1b2821;
+  --ink-secondary: #4a5950;
+  --ink-muted: #6c7970;
+  --forest-deep: #1b4332;
+  --forest-moss: #2d6a4f;
+  --brass-gold: #b5832c;
+  --brass-tint: #f3e6c8;
+  --rule-border: #d8ccb5;
+  --shadow-book: 0 10px 26px rgba(27, 40, 33, 0.08);
 }
 
 body.evening-study {
-  --bg-parchment: #141c18;
-  --bg-card: #1b2621;
-  --bg-muted: #223029;
-  --text-ink: #f1ece1;
-  --text-soft: #b8c2ba;
-  --forest-primary: #4ca37e;
-  --forest-dark: #367c5e;
-  --brass-accent: #d6a656;
-  --brass-soft: rgba(214, 166, 86, 0.16);
-  --border-subtle: #2c3d35;
-  --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.35);
+  --paper-base: #121a16;
+  --paper-elevated: #19241e;
+  --paper-ruled: #213028;
+  --ink-primary: #f2ece0;
+  --ink-secondary: #bcc7be;
+  --ink-muted: #8e9c92;
+  --forest-deep: #52b788;
+  --forest-moss: #40916c;
+  --brass-gold: #ddb05c;
+  --brass-tint: rgba(221, 176, 92, 0.16);
+  --rule-border: #2d3e35;
+  --shadow-book: 0 14px 32px rgba(0, 0, 0, 0.42);
 }
 
 * {
@@ -33,40 +35,44 @@ body.evening-study {
 
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  background-color: var(--bg-parchment);
-  color: var(--text-ink);
-  line-height: 1.6;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  background-color: var(--paper-base);
+  background-image: radial-gradient(rgba(181, 131, 44, 0.07) 1px, transparent 0);
+  background-size: 24px 24px;
+  color: var(--ink-primary);
+  line-height: 1.65;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 button,
 select,
+input,
 textarea {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.badge {
+.chip {
   display: inline-block;
   font-family: system-ui, -apple-system, sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
-  padding: 0.25rem 0.65rem;
+  padding: 0.24rem 0.68rem;
   border-radius: 999px;
+  letter-spacing: 0.02em;
 }
 
-.badge-virtue {
-  background: var(--forest-primary);
-  color: #fffdf8;
+.chip-virtue {
+  background: var(--forest-deep);
+  color: #fbf8f1;
 }
 
-.badge-trap {
-  background: var(--brass-soft);
-  color: var(--text-ink);
-  border: 1px solid var(--brass-accent);
+.chip-age {
+  background: var(--brass-tint);
+  color: var(--ink-primary);
+  border: 1px solid var(--brass-gold);
 }
 
-.badge-age {
-  background: var(--bg-muted);
-  color: var(--text-soft);
+.chip-source {
+  background: var(--paper-ruled);
+  color: var(--ink-secondary);
 }
