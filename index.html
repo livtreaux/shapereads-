@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shapereads — Classics that shape character.</title>
+  <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <svg width="38" height="38" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect x="4" y="6" width="32" height="28" rx="6" fill="#1f4d3a" />
+          <path d="M20 11C15 11 11 13 11 13V28C11 28 15 26 20 26C25 26 29 28 29 28V13C29 13 25 11 20 11Z" stroke="#f7f3ea" stroke-width="2" />
+          <path d="M20 11V26" stroke="#d6a656" stroke-width="2" />
+        </svg>
+        <div>
+          <h1 class="brand-title">Shape<span class="brand-reads">reads</span></h1>
+          <p class="brand-tagline">Classics that shape character.</p>
+        </div>
+      </div>
+
+      <button id="themeToggle" class="btn">Evening Study</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="mascot-banner" aria-label="Bram the Brass Lantern Guide">
+      <div class="mascot-left">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect x="11" y="10" width="14" height="17" rx="3" stroke="#b8893c" stroke-width="2.2" />
+          <path d="M14 10L18 5L22 10" stroke="#b8893c" stroke-width="2.2" />
+          <circle cx="18" cy="18.5" r="3" fill="#d6a656" />
+          <path d="M9 27H27" stroke="#b8893c" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+        <div>
+          <div class="mascot-name">Bram the Brass Lantern</div>
+          <div id="bramMessage">Pick your age band or a modern blind spot you want to test—no essay shortcuts here.</div>
+        </div>
+      </div>
+      <button id="bramNudgeBtn" class="btn btn-brass">Ask Bram for a Nudge</button>
+    </section>
+
+    <section class="filters-bar" aria-label="Book Filters">
+      <div class="filter-group">
+        <label for="ageFilter">Age Band</label>
+        <select id="ageFilter">
+          <option value="">All Ages (12–18)</option>
+          <option value="Early (12-14)">Early Teens (12–14)</option>
+          <option value="Older (15-18)">Older Teens (15–18)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="virtueFilter">Primary Virtue</label>
+        <select id="virtueFilter">
+          <option value="">All 5 Virtues</option>
+          <option value="Compassion">Compassion</option>
+          <option value="Discernment">Discernment</option>
+          <option value="Patience">Patience</option>
+          <option value="Self-Control">Self-Control</option>
+          <option value="Responsibility">Responsibility</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="trapFilter">Modern Trap Targeted</label>
+        <select id="trapFilter">
+          <option value="">All 4 Modern Traps</option>
+          <option value="Wanting shortcuts">Wanting shortcuts</option>
+          <option value="Poor listening">Poor listening</option>
+          <option value="Main character energy">Main character energy</option>
+          <option value="Follow your heart">"Follow your heart"</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="booksGrid" class="books-grid" aria-live="polite"></section>
+  </main>
+
+  <div id="councilModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;">
+        <div>
+          <div id="modalBadges" class="badge-row"></div>
+          <h2 id="modalTitle" style="margin:0.4rem 0 0.15rem; color:var(--forest-primary);"></h2>
+          <p id="modalAuthor" class="book-author"></p>
+        </div>
+        <button id="closeModalBtn" class="btn">Close</button>
+      </div>
+
+      <div class="recap-box">
+        <strong>Where We Left Off:</strong> <span id="modalRecap"></span>
+      </div>
+
+      <h3 style="margin-bottom:0.4rem; font-size:1.05rem;">Character Council Questions</h3>
+      <ol id="modalPrompts" class="prompt-list"></ol>
+
+      <label for="reflectionInput" style="display:block; font-weight:700; font-size:0.9rem; margin-bottom:0.35rem;">
+        Your Mirror Highlight (Saved privately on this device)
+      </label>
+      <textarea id="reflectionInput" class="reflection-area" placeholder="Write what this chapter exposed about pride, patience, listening, or impulse..."></textarea>
+      <button id="saveReflectionBtn" class="btn btn-primary">Save Mirror Highlight</button>
+
+      <div id="savedNotesWrap" class="saved-notes"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { filterBooks } from "./js/books.js";
+    import { getPromptsForBook } from "./js/socratic.js";
+
+    const booksGrid = document.getElementById("booksGrid");
+    const ageFilter = document.getElementById("ageFilter");
+    const virtueFilter = document.getElementById("virtueFilter");
+    const trapFilter = document.getElementById("trapFilter");
+    const themeToggle = document.getElementById("themeToggle");
+    const bramMessage = document.getElementById("bramMessage");
+    const bramNudgeBtn = document.getElementById("bramNudgeBtn");
+
+    const modal = document.getElementById("councilModal");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modalBadges = document.getElementById("modalBadges");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalAuthor = document.getElementById("modalAuthor");
+    const modalRecap = document.getElementById("modalRecap");
+    const modalPrompts = document.getElementById("modalPrompts");
+    const reflectionInput = document.getElementById("reflectionInput");
+    const saveReflectionBtn = document.getElementById("saveReflectionBtn");
+    const savedNotesWrap = document.getElementById("savedNotesWrap");
+
+    let activeBookId = null;
+
+    const bramNudges = [
+      "Notice where a character reaches for a shortcut—and ask what you usually rush past.",
+      "Good reading isn't proving you're clever; it's catching a blind spot before life teaches it the hard way.",
+      "Before defending a character's choice, ask who paid the price for it.",
+      "Pick one question below and write two honest sentences—no grades, no essay rubric."
+    ];
+
+    bramNudgeBtn.addEventListener("click", () => {
+      const next = bramNudges[Math.floor(Math.random() * bramNudges.length)];
+      bramMessage.textContent = next;
+    });
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("evening-study");
+      themeToggle.textContent = document.body.classList.contains("evening-study")
+        ? "Parchment Day"
+        : "Evening Study";
+    });
+
+    function getDiaryNotes(bookId) {
+      const raw = localStorage.getItem("shapereads_mirror_notes");
+      const all = raw ? JSON.parse(raw) : {};
+      return all[bookId] || [];
+    }
+
+    function saveDiaryNote(bookId, text) {
+      const raw = localStorage.getItem("shapereads_mirror_notes");
+      const all = raw ? JSON.parse(raw) : {};
+      if (!all[bookId]) all[bookId] = [];
+      all[bookId].unshift({
+        text,
+        date: new Date().toLocaleDateString()
+      });
+      localStorage.setItem("shapereads_mirror_notes", JSON.stringify(all));
+    }
+
+    function renderNotes(bookId) {
+      const notes = getDiaryNotes(bookId);
+      if (!notes.length) {
+        savedNotesWrap.innerHTML = "<p style='color:var(--text-soft); font-size:0.88rem;'>No Mirror Highlights saved for this book yet.</p>";
+        return;
+      }
+      savedNotesWrap.innerHTML =
+        "<strong style='font-size:0.9rem;'>Saved Mirror Highlights:</strong>" +
+        notes
+          .map(
+            (n) =>
+              `<div class="note-item"><small style="color:var(--text-soft);">${n.date}</small><div>${n.text.replace(/</g, "&lt;")}</div></div>`
+          )
+          .join("");
+    }
+
+    function openBookModal(book) {
+      activeBookId = book.bookId;
+      modalBadges.innerHTML = `
+        <span class="badge badge-age">${book.ageBand}</span>
+        <span class="badge badge-virtue">${book.primaryVirtue}</span>
+        <span class="badge badge-trap">Trap: ${book.modernTrapTargeted}</span>
+      `;
+      modalTitle.textContent = book.title;
+      modalAuthor.textContent = `by ${book.author}`;
+      modalRecap.textContent = book.recapAnchor;
+
+      const prompts = getPromptsForBook(book.bookId);
+      modalPrompts.innerHTML = prompts.map((q) => `<li>${q}</li>`).join("");
+
+      reflectionInput.value = "";
+      renderNotes(book.bookId);
+      modal.classList.add("open");
+    }
+
+    closeModalBtn.addEventListener("click", () => modal.classList.remove("open"));
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.remove("open");
+    });
+
+    saveReflectionBtn.addEventListener("click", () => {
+      const text = reflectionInput.value.trim();
+      if (!text || !activeBookId) return;
+      saveDiaryNote(activeBookId, text);
+      reflectionInput.value = "";
+      renderNotes(activeBookId);
+    });
+
+    function renderBooks() {
+      const matches = filterBooks({
+        ageBand: ageFilter.value,
+        virtue: virtueFilter.value,
+        trap: trapFilter.value
+      });
+
+      if (!matches.length) {
+        booksGrid.innerHTML = "<p>No books match that exact combination yet—try clearing one filter.</p>";
+        return;
+      }
+
+      booksGrid.innerHTML = "";
+      matches.forEach((book) => {
+        const card = document.createElement("article");
+        card.className = "book-card";
+        card.innerHTML = `
+          <div>
+            <div class="badge-row">
+              <span class="badge badge-age">${book.ageBand}</span>
+              <span class="badge badge-virtue">${book.primaryVirtue}</span>
+              <span class="badge badge-trap">${book.modernTrapTargeted}</span>
+            </div>
+            <h3>${book.title}</h3>
+            <p class="book-author">${book.author}</p>
+            <p class="hook-text">${book.characterHook}</p>
+          </div>
+          <button class="btn btn-primary">Open Character Council</button>
+        `;
+        card.querySelector("button").addEventListener("click", () => openBookModal(book));
+        booksGrid.appendChild(card);
+      });
+    }
+
+    ageFilter.addEventListener("change", renderBooks);
+    virtueFilter.addEventListener("change", renderBooks);
+    trapFilter.addEventListener("change", renderBooks);
+
+    renderBooks();
+  </script>
+</body>
+</html>
